@@ -129,3 +129,10 @@
 
 </body>
 </html>
+<!-- फाइल अपलोड गर्ने खण्ड -->
+<div class="upload-section" style="margin-top: 20px; text-align: center;">
+    <h3>तपाईंका फाइलहरू, फोटो र भिडियोहरू यहाँ राख्नुहोस्</h3>
+    <input type="file" id="fileInput" accept="image/*,video/*,.pdf,.doc,.docx" multiple style="margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    <p style="font-size: 0.9rem; color: #666;">तपाईंले फोटो, भिडियो र कागजातहरू छान्न सक्नुहुन्छ।</p>
+</div>
+
