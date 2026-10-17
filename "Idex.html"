@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    اباتtitle>मेरो सुरक्षित ठाउँ - Stillroom</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #818cf8;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            background: #0f172a;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #4f46e5;
+        }
+        .dashboard {
+            display: none;
+            text-align: left;
+        }
+        .file-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #0f172a;
+            border-radius: 8px;
+            border: 1px dashed #475569;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="auth-container">
+        <h2>सुरक्षित लगइन</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="input-group">
+                <label for="email">जिमेल (Gmail) इमेल:</label>
+                <input type="email" id="email" required placeholder="example@gmail.com">
+            </div>
+            <div class="input-group">
+                <label for="pin">४ देखि ६ डिजिटको पासवर्ड (PIN):</label>
+                <input type="password" id="pin" pattern="[0-9]{4,6}" maxlength="6" required placeholder="उदा. 123456">
+            </div>
+            <button type="submit">साइन इन / लगइन गर्नुहोस्</button>
+        </form>
+    </div>
+
+    <div class="container dashboard" id="dashboard-container">
+        <h2>स्वागत छ!</h2>
+    <p>तपाईंका फाइलहरू सुरक्षित रूपमा यहाँ व्यवस्थित छन्।</p>
+        
+        <div class="file-section">
+            <h3>📁 मेरो फाइलहरू र फोटो/भिडियोहरू</h3>
+            <p style="color: #94a3b8; font-size: 14px;">अहिले यहाँ कुनै फाइल छैनन्। नयाँ अपलोड गर्न तल क्लिक गर्नुहोस्।</p>
+            <input type="file" id="fileUpload" multiple style="margin-top: 10px; color: #fff;">
+        </div>
+        
+        <button onclick="handleLogout()" style="background: #ef4444; margin-top: 20px;">लगेआउट (Logout)</button>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            // साधारण डेमोको लागि लगइन सफल भएपछि ड्यासबोर्ड देखाउने
+            document.getElementById('auth-container').style.display = 'none';
+            document.getElementById('dashboard-container').style.display = 'block';
+        }
+
+        function handleLogout() {
+            document.getElementById('dashboard-container').style.display = 'none';
+            document.getElementById('auth-container').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
