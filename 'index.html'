@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    اباتtitle>मेरो सुरक्षित ठाउँ - Stillroom</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #818cf8;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            background: #0f172a;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #4f46e5;
+        }
+        .dashboard {
+            display: none;
+            text-align: left;
+        }
+        .file-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #0f172a;
+            border-radius: 8px;
+            border: 1px dashed #475569;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="auth-container">
+        <h2>सुरक्षित लगइन</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="input-group">
+e="color: #94a3b8; font-size: 14px;">अहिले यहाँ कुनै फाइल छैनन्। नयाँ अपलोड गर्न तल क्लिक गर्नुहो
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeVault | Secure Storage</title>
+  <style>
+    :root{
+      --bg-dark:#07111f;
+      --bg-soft:#0f1d32;
+      --panel:#101f35;
+      --panel-2:#132744;
+      --primary:#60a5fa;
+      --secondary:#22c55e;
+      --accent:#8b5cf6;
+      --danger:#ef4444;
+      --text:#edf6ff;
+      --muted:#9cb5cf;
+      --line:rgba(255,255,255,0.08);
+      --shadow:0 20px 50px rgba(0,0,0,0.35);
+      --radius:24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:radial-gradient(circle at top, #122b47 0%, #07111f 45%, #030a12 100%);
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: blur(12px);
+      background:rgba(8, 16, 28, 0.7);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:80px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+
+    .brand-mark{
+      width:42px; height:42px; border-radius:14px;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      display:grid; place-items:center;
+      font-weight:900; color:#031522;
+      box-shadow:0 12px 28px rgba(96,165,250,0.35);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .btn{
+      border:none;
+      border-radius:12px;
+      padding:12px 18px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.25s ease;
+    }
+
+    .btn:hover{ transform:translateY(-1px); }
+
+    .btn-outline{
+      background:transparent;
+      color:var(--text);
+      border:1px solid var(--line);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--primary), #3b82f6);
+      color:#041722;
+      box-shadow:0 10px 22px rgba(59,130,246,0.35);
+    }
+
+    .hero{
+      padding:50px 0 30px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .hero-copy h1{
+      margin:0 0 18px;
+      font-size:clamp(2.5rem, 3vw, 4.3rem);
+      line-height:1.05;
+      letter-spacing:-0.06em;
+    }
+
+    .hero-copy h1 .highlight{
+      background:linear-gradient(135deg, #8b5cf6, #60a5fa, #22c55e);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-copy p{
+      color:var(--muted);
+      font-size:1.08rem;
+      line-height:1.7;
+      max-width:620px;
+      margin:0 0 26px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:22px;
+    }
+
+    .mini-stats{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    .mini-stats span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--line);
+      border-radius:12px;
+    }
+
+    .stat-dot{
+      width:10px; height:10px; border-radius:50%;
+      background:var(--secondary);
+      box-shadow:0 0 12px rgba(34,197,94,0.8);
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .user-card{
+      background:linear-gradient(180deg, rgba(15,29,50,0.92), rgba(20,40,66,0.82));
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .user-card::before{
+      content:"";
+      position:absolute;
+      inset:-60% 30% auto auto;
+      width:180px; height:180px;
+      background:radial-gradient(circle, rgba(96,165,250,0.38), transparent 60%);
+      filter:blur(14px);
+    }
+
+    .user-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+      position:relative; z-index:1;
+    }
+
+    .user-pill{
+      background:rgba(34,197,94,0.16);
+      color:#a7f3d0;
+      border:1px solid rgba(34,197,94,0.25);
+      border-radius:999px;
+      padding:7px 12px;
+      font-size:0.76rem;
+      font-weight:700;
+      letter-spacing:0.04em;
+    }
+
+    .avatar{
+      width:60px; height:60px; border-radius:50%;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, #dbeafe, #a78bfa);
+      color:#081724; font-weight:900;
+      margin-bottom:12px;
+      position:relative; z-index:1;
+    }
+
+    .user-card h3{
+      margin:0;
+      font-size:1.2rem;
+      position:relative; z-index:1;
+    }
+
+    .email-box{
+      margin-top:16px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px 14px;
+      color:var(--muted);
+      position:relative; z-index:1;
+      min-height:48px;
+      display:flex; align-items:center;
+    }
+
+    .pin-box{
+      margin-top:18px;
+      position:relative; z-index:1;
+    }
+
+    .pin-box label{
+      display:block;
+      color:var(--muted);
+      font-size:0.84rem;
+      margin-bottom:8px;
+    }
+
+    .pin-row{
+      display:flex;
+      gap:10px;
+    }
+
+    .pin-input{
+      width:100%;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px 14px;
+      outline:none;
+      color:var(--text);
+      font-size:1rem;
+    }
+
+    .pin-input:focus{
+      border-color:rgba(96,165,250,0.7);
+      box-shadow:0 0 0 3px rgba(96,165,250,0.15);
+    }
+
+    .saved-note{
+      margin-top:12px;
+      min-height:20px;
+      font-size:0.8rem;
+      color:var(--muted);
+    }
+
+    .main-section{
+      padding:24px 0 60px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap:24px;
+    }
+
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .section-title{
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:16px;
+    }
+
+    .section-title h2{
+      margin:0;
+      font-size:1.3rem;
+    }
+
+    .upload-box{
+      border:2px dashed rgba(96,165,250,0.35);
+      background:rgba(96,165,250,0.04);
+      border-radius:18px;
+      padding:26px 18px;
+      text-align:center;
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:12px;
+      cursor:pointer;
+      transition:0.25s ease;
+    }
+
+    .upload-box:hover{
+      border-color:rgba(139,92,246,0.75);
+      background:rgba(139,92,246,0.04);
+    }
+
+    .drop-icon{
+      width:64px; height:64px; border-radius:18px;
+      display:grid; place-items:center;
+      font-size:2rem;
+      background:linear-gradient(135deg, rgba(96,165,250,0.18), rgba(139,92,246,0.18));
+      border:1px solid var(--line);
+    }
+
+    .upload-box p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .hidden-input{ display:none; }
+
+    .upload-actions{
+      margin-top:16px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .file-list{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+    }
+
+    .file-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 13px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+
+    .file-thumb{
+      width:52px; height:52px;
+      border-radius:12px;
+      display:grid; place-items:center;
+      font-size:0.72rem;
+      font-weight:700;
+      color:#dfeafe;
+      background:linear-gradient(135deg, rgba(96,165,250,0.2), rgba(34,197,94,0.16));
+      border:1px solid var(--line);
+    }
+
+    .file-meta{
+      flex:1;
+    }
+
+    .file-name{
+      font-weight:600;
+      margin-bottom:4px;
+      word-break:break-all;
+    }
+
+    .file-size{
+      color:var(--muted);
+      font-size:0.8rem;
+    }
+
+    .remove-btn{
+      background:transparent;
+      border:1px solid rgba(239,68,68,0.35);
+      color:#fca5a5;
+      border-radius:10px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+
+    .security-list{
+      display:grid;
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .security-item{
+      background:rgba(255,255,255,0.025);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+    }
+
+    .security-item h4{
+      margin:0 0 8px;
+      font-size:1rem;
+    }
+
+    .security-item p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:0.95rem;
+    }
+
+    .g-login{
+      width:100%;
+      margin-top:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--line);
+      color:var(--text);
+      border-radius:12px;
+      padding:12px 14px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .g-icon{
+      width:18px; height:18px; border-radius:50%;
+      background:radial-gradient(circle at center, #f5f5f5 0%, #f5f5f5 25%, #ea4335 25%, #ea4335 50%, #fbbc05 50%, #fbbc05 75%, #34a853 75%, #34a853 100%);
+      display:inline-block;
+    }
+
+    .hidden{ display:none !important; }
+
+    @media (max-width:920px){
+      .hero-grid, .grid{
+        grid-template-columns:1fr;
+      }
+      .nav-links{
+        display:none;
+      }
+    }
+
+    @media (max-width:560px){
+      .pin-row{
+        flex-direction:column;
+      }
+      .hero-copy h1{
+        font-size:2.5rem;
+      }
+      .nav-actions{
+        gap:8px;
+      }
+      .btn{
+        padding:10px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <span>SafeVault</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#security">Security</a>
+        <a href="#upload">Upload</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline">Log in</button>
+        <button class="btn btn-primary">Get Started</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Secure your <span class="highlight">photos</span>, videos, and files.</h1>
+          <p>
+            Your important memories, documents, and digital files are protected with smart access control,
+            simple sign-in, and a secure 4–6 digit PIN experience.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="startBtn">Start Protecting</button>
+            <button class="btn btn-outline" id="learnBtn">Learn More</button>
+          </div>
+
+          <div class="mini-stats">
+            <span><i class="stat-dot"></i> 256-bit secure</span>
+            <span><i class="stat-dot"></i> Auto backup</span>
+            <span><i class="stat-dot"></i> 24/7 access</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="user-card">
+            <div class="user-top">
+              <span class="user-pill">Protected</span>
+              <small style="color:var(--muted); position:relative; z-index:1;">SafeCloud</small>
+            </div>
+
+            <div class="avatar">U</div>
+            <h3 id="userName">Welcome, User</h3>
+
+            <div class="email-box" id="emailBox">
+              No Gmail account connected
+            </div>
+
+            <div class="pin-box">
+              <label>Set your 4–6 digit PIN</label>
+              <div class="pin-row">
+                <input id="pinInput" class="pin-input" type="password" maxlength="6" placeholder="e.g. 4821" />
+                <button id="savePinBtn" class="btn btn-primary" style="white-space:nowrap;">Save PIN</button>
+              </div>
+              <div id="pinStatus" class="saved-note">PIN is stored locally for this demo.</div>
+            </div>
+
+            <button class="g-login" id="googleLoginBtn">
+              <span class="g-icon"></span>
+              Continue with Google
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-section" id="features">
+      <div class="container grid">
+        <div class="panel" id="upload">
+          <div class="section-title">
+            <h2>Upload files</h2>
+            <span style="color:var(--muted); font-size:0.85rem;">Photos / Videos / Docs</span>
+          </div>
+
+          <div class="upload-box" id="uploadBox">
+            <div class="drop-icon">⬆️</div>
+            <h3 style="margin:0;">Drag & drop here</h3>
+            <p>or click to select files for secure storage</p>
+          </div>
+
+          <input type="file" id="fileInput" class="hidden-input" multiple />
+
+          <div class="upload-actions">
+            <button class="btn btn-primary" id="uploadBtn">Upload Selected</button>
+            <button class="btn btn-outline" id="clearBtn">Clear List</button>
+          </div>
+
+          <div class="file-list" id="fileList">
+            <div class="file-item">
+              <div class="file-thumb">IMG</div>
+              <div class="file-meta">
+                <div class="file-name">No files selected</div>
+                <div class="file-size">Waiting for uploads...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="security">
+          <div class="section-title">
+            <h2>Security overview</h2>
+          </div>
+
+          <div class="security-list">
+            <div class="security-item">
+              <h4>Gmail sign-in</h4>
+              <p>Use a Google account for authentication and keep access under your control.</p>
+            </div>
+            <div class="security-item">
+              <h4>4–6 digit PIN</h4>
+              <p>Protect quick access with a short PIN, but in production always hash and store it server-side.</p>
+            </div>
+            <div class="security-item">
+              <h4>Safe storage</h4>
+              <p>Files are stored with size limits, strict access controls, and secure cloud-based storage in real deployment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const uploadBox = document.getElementById('uploadBox');
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+    const clearBtn = document.getElementById('clearBtn');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const savePinBtn = document.getElementById('savePinBtn');
+    const pinInput = document.getElementById('pinInput');
+    const pinStatus = document.getElementById('pinStatus');
+    const emailBox = document.getElementById('emailBox');
+    const userName = document.getElementById('userName');
+    const googleLoginBtn = document.getElementById('googleLoginBtn');
+    const startBtn = document.getElementById('startBtn');
+    const learnBtn = document.getElementById('learnBtn');
+
+    let selectedFiles = [];
+
+    function formatSize(bytes){
+      if (!bytes) return '0 KB';
+      const kb = bytes / 1024;
+      if (kb < 1024) return kb.toFixed(1) + ' KB';
+      const mb = kb / 1024;
+      return mb.toFixed(1) + ' MB';
+    }
+
+    function renderFiles(){
+      fileList.innerHTML = '';
+
+      if (selectedFiles.length === 0) {
+        fileList.innerHTML = `
+          <div class="file-item">
+            <div class="file-thumb">IMG</div>
+            <div class="file-meta">
+              <div class="file-name">No files selected</div>
+              <div class="file-size">Waiting for uploads...</div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      selectedFiles.forEach((file, index) => {
+        const typeLabel = file.type.startsWith('image/') ? 'IMG'
+          : file.type.startsWith('video/') ? 'VID'
+          : 'FILE';
+
+        const item = document.createElement('div');
+        item.className = 'file-item';
+
+        item.innerHTML = `
+          <div class="file-thumb">${typeLabel}</div>
+          <div class="file-meta">
+            <div class="file-name">${file.name}</div>
+            <div class="file-size">${formatSize(file.size)}</div>
+          </div>
+          <button class="remove-btn" data-index="${index}">Remove</button>
+        `;
+
+        fileList.appendChild(item);
+      });
+
+      document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const idx = Number(this.dataset.index);
+          selectedFiles.splice(idx, 1);
+          renderFiles();
+        });
+      });
+    }
+
+    uploadBox.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', (event) => {
+      const files = Array.from(event.target.files);
+      if (!files.length) return;
+      selectedFiles = [...selectedFiles, ...files];
+      renderFiles();
+    });
+
+    ['dragenter', 'dragover'].forEach(type => {
+      uploadBox.addEventListener(type, (e) => {
+        e.preventDefault();
+        uploadBox.style.transform = 'scale(1.01)';
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(type => {
+      uploadBox.addEventListener(type, (e) => {
+        e.preventDefault();
+        uploadBox.style.transform = 'none';
+      });
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+      const files = Array.from(e.dataTransfer.files);
+      if (files.length) {
+        selectedFiles = [...selectedFiles, ...files];
+        renderFiles();
+      }
+    });
+
+    clearBtn.addEventListener('click', () => {
+      selectedFiles = [];
+      fileInput.value = '';
+      renderFiles();
+    });
+
+    uploadBtn.addEventListener('click', () => {
+      if (!selectedFiles.length) {
+        pinStatus.textContent = 'Please select at least one file to upload.';
+        pinStatus.style.color = '#fca5a5';
+        return;
+      }
+
+      pinStatus.textContent = selectedFiles.length + ' file(s) added successfully.';
+      pinStatus.style.color = '#a7f3d0';
+      fileInput.value = '';
+    });
+
+    savePinBtn.addEventListener('click', () => {
+      const value = pinInput.value.trim();
+      if (!/^\d{4,6}$/.test(value)) {
+        pinStatus.textContent = 'PIN must be 4 to 6 digits only.';
+        pinStatus.style.color = '#fca5a5';
+        return;
+      }
+
+      localStorage.setItem('safevault_pin', value);
+      pinStatus.textContent = 'PIN saved securely for this demo.';
+      pinStatus.style.color = '#a7f3d0';
+      pinInput.value = '';
+    });
+
+    googleLoginBtn.addEventListener('click', () => {
+      const email = prompt('Enter your Gmail email (demo):', 'user@gmail.com');
+      if (!email) return;
+      const safeEmail = email.trim();
+      if (!safeEmail || !safeEmail.includes('@')) {
+        emailBox.textContent = 'Invalid Gmail address.';
+        return;
+      }
+
+      localStorage.setItem('safevault_email', safeEmail);
+      emailBox.textContent = safeEmail;
+      userName.textContent = 'Welcome, ' + safeEmail.split('@')[0];
+    });
+
+    startBtn.addEventListener('click', () => {
+      document.getElementById('upload').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    learnBtn.addEventListener('click', () => {
+      document.get
+
