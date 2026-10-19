@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privateroom - Team & Uploader</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .container {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .upload-box {
+            border: 2px dashed var(--primary-color);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+        }
+        .upload-box input {
+            display: none;
+        }
+        .team-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: space-around;
+        }
+        .team-member {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Privateroom</h1>
+        <p>Photo video and important files safely add stillroom users.</p>
+    </header>
+
+    <!-- File Uploader Section -->
+    <div class="container">
+        <h2>File Uploader</h2>
+        <label class="upload-box">
+            <input type="file" id="fileInput">
+            <span>Click to upload files or photos</span>
+        </label>
+    </div>
+
+    <!-- Team Section -->
+    <div class="container">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Prakash</h3>
+                <p>Developer</p>
+            </div>
+            <div class="team-member">
+                <h3>Support</h3>
+                <p>Manager</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
